@@ -25,7 +25,14 @@ See [DESIGN.md](DESIGN.md) for the complete High-Level Design Document (HLDD) an
 - **Libraries:** `pandas`, `google-cloud-bigquery`
 - **Data Warehouse:** Google Cloud BigQuery
 - **Orchestration:** Apache Airflow (Dockerized)
-- **Architecture:** Modern ELT (Extract, Load, Transform) with idempotent logic.
+- **Transformation (Upcoming):** dbt (data build tool)
+
+### Repository Layout
+- `dags/`: Airflow DAG definitions
+- `scripts/`: Python ingestion scripts (Mock API and CSV processing)
+- `sql/`: BigQuery SQL transformation queries
+- `dbt_transform/`: *[WIP]* Planning docs and future dbt integration for advanced transformations
+- `config/` & `logs/`: Airflow configurations and execution logsw)
 
 ---
 
@@ -71,7 +78,7 @@ Building this project involved solving several common Data Engineering challenge
 ## 🚀 Future Enhancements
 
 While this pipeline is fully functional, here is what I plan to implement next to make it even more robust:
-- **dbt (data build tool):** Integrate dbt to manage the BigQuery SQL transformations, enabling better lineage tracking, templating, and built-in testing.
+- **dbt (data build tool):** *Currently in planning phase (see `dbt_transform/Action_Plan.md`).* Will integrate dbt to manage the BigQuery SQL transformations, enabling better lineage tracking, templating, and built-in testing.
 - **Data Quality Checks:** Implement `Great Expectations` or Airflow SQL Check Operators to validate data freshness, null constraints, and value distributions before pushing to BI dashboards.
 - **CI/CD Pipeline:** Add GitHub Actions to automate DAG testing and deployment to the Airflow server.
 - **Cloud Orchestration:** Migrate the local Airflow Docker setup to Google Cloud Composer for a fully managed serverless experience.
