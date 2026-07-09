@@ -1,0 +1,24 @@
+transaction_id,user_id,amount,transaction_type,status,timestamp
+T1000,U001,100.00,Payment,Completed,2026-07-07 08:00:00
+T1001,U002,50.00,Top-up,Completed,2026-07-07 08:30:00
+T1002,U003,200.00,Withdrawal,Failed,2026-07-07 09:00:00
+T1003,U004,1000.00,Payment,Completed,2026-07-07 09:30:00
+T1004,U005,300.00,Top-up,Completed,2026-07-08 10:00:00
+T1005,U002,120.00,Payment,Completed,2026-07-08 10:30:00
+T1006,U006,500.00,Withdrawal,Completed,2026-07-08 11:00:00
+T1007,U007,75.00,Payment,Completed,2026-07-08 11:30:00
+T1008,U001,150.00,Payment,Completed,2026-07-09 08:15:00
+T1009,U002,50.00,Top-up,Completed,2026-07-09 08:16:30
+T1010,U003,200.00,Withdrawal,Failed,2026-07-09 08:20:00
+T1011,U004,1000.00,Payment,Completed,2026-07-09 08:25:45
+T1012,U001,25.50,Payment,Pending,2026-07-09 08:30:10
+T1013,U005,300.00,Top-up,Completed,2026-07-09 08:35:00
+T1014,U002,120.00,Payment,Completed,2026-07-09 09:00:00
+T1015,U006,500.00,Withdrawal,Completed,2026-07-09 09:05:00
+T1016,U007,75.00,Payment,Completed,2026-07-09 09:10:00
+T1017,U001,40.00,Top-up,Failed,2026-07-09 09:15:00
+T1018,U003,15.00,Payment,Completed,2026-07-09 09:20:00
+T1019,U004,250.00,Top-up,Completed,2026-07-09 09:25:00
+T1020,U002,500.00,Withdrawal,Completed,2026-07-09 09:30:00
+T1021,U005,80.00,Payment,Completed,2026-07-09 09:35:00
+T1022,U006,1200.00,Top-up,Completed,2026-07-09 09:40:00
