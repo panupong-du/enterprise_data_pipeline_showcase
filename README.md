@@ -1,5 +1,7 @@
 # 🚀 Enterprise ELT Data Pipeline
 
+![Airflow DAG Execution](images/airflow_dag_success.png)
+
 Welcome to my Python Data Engineering & Automation Hub! This repository demonstrates a production-grade **ELT (Extract, Load, Transform)** pipeline orchestrated by **Apache Airflow** and powered by **Google BigQuery**.
 
 ## 🎯 Business Impact & Context
