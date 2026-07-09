@@ -12,6 +12,8 @@ In a modern data-driven organization, data accuracy and timely reporting are cri
 
 This automated pipeline is built with **Idempotency** in mind (using Airflow's `logical_date` / `{{ ds }}`), meaning it can be rerun seamlessly for backfilling data without causing data duplication.
 
+![BigQuery Final Summary Table](images/bigquery_output.png)
+
 ---
 
 ## 📂 Project Structure & Features
@@ -56,3 +58,20 @@ python main_etl.py --date 2026-07-09
 3. The DAG `enterprise_data_pipeline` is scheduled to run daily at 08:00 UTC. You can trigger it manually to watch the Extract ➔ Load Raw ➔ Transform SQL process flow in action!
 
 *(Note: If you make changes to the DAG files while developing outside the container, run `sync_dags.bat` to sync them into Airflow).*
+
+---
+
+## 🧠 Key Learnings & Challenges Solved
+
+Building this project involved solving several common Data Engineering challenges:
+- **ELT over ETL:** Initially started with Pandas for transformations, but transitioned to BigQuery SQL to shift the compute load to the Cloud Data Warehouse. This avoids out-of-memory (OOM) errors in Airflow workers when data scales.
+- **Idempotent Pipelines:** Implemented `DELETE + INSERT` logic utilizing Airflow's `logical_date` (`{{ ds }}`). This ensures the pipeline can be safely re-run for backfilling without duplicating records.
+- **Data Integration:** Successfully joined raw event streams (Transactions CSV) with dimension data (CRM API) based on complex business logic (e.g., verifying KYC status).
+
+## 🚀 Future Enhancements
+
+While this pipeline is fully functional, here is what I plan to implement next to make it even more robust:
+- **dbt (data build tool):** Integrate dbt to manage the BigQuery SQL transformations, enabling better lineage tracking, templating, and built-in testing.
+- **Data Quality Checks:** Implement `Great Expectations` or Airflow SQL Check Operators to validate data freshness, null constraints, and value distributions before pushing to BI dashboards.
+- **CI/CD Pipeline:** Add GitHub Actions to automate DAG testing and deployment to the Airflow server.
+- **Cloud Orchestration:** Migrate the local Airflow Docker setup to Google Cloud Composer for a fully managed serverless experience.
